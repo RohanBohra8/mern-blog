@@ -20,3 +20,14 @@ app.listen(process.env.PORT || 3000, () =>{
 //using the api's we created in routes 
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
+
+//middeleware to handle 404 error
+app.use((err, req, res, next) =>{
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'Internal Server Error'; 
+    res.status(statusCode).json({
+        sucess: false,
+        statusCode,
+        message
+    });
+}); 
