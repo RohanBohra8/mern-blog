@@ -6,4 +6,4 @@ const router = express.Router();
 //creating a test api
 router.get('/test', test);
 
-export default router;
+export default router; 
