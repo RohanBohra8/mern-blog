@@ -4,6 +4,7 @@ import connectDB from './database/db.js';
 import userRoutes from './routes/user.route.js'; //importing test api we created in routes
 import authRoutes from './routes/auth.route.js'; //importing auth api we created in routes
 import cookieParser from 'cookie-parser';
+import postRoutes from './routes/post.route.js';
 
 dotenv.config(); // to use .env file
 
@@ -22,6 +23,7 @@ app.listen(process.env.PORT || 3000, () =>{
 //using the api's we created in routes 
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/post', postRoutes);
 
 //middeleware to handle 404 error
 app.use((err, req, res, next) =>{
